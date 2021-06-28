@@ -1,6 +1,6 @@
-# flutter_burc_rehberi
+# burcunuz_cepte
 
-Burç Rehberi Uygulaması
+Burc uygularının en iyilerinden
 
 ## Getting Started
 

@@ -1,32 +1,39 @@
+import 'dart:io';
+
+import 'package:custom_scroll_view/signin_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_burc_rehberi/burc_detay.dart';
-import 'package:flutter_burc_rehberi/burc_liste.dart';
 
-void main() => runApp(MyApp());
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
+  }
+}
 
-class MyApp extends StatelessWidget {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  HttpOverrides.global = new MyHttpOverrides();
+  runApp(MyApppp());
+}
+
+/// Uygulamanın başlangıç noktası.
+///
+/// Bir [Material App] döndürür.
+class MyApppp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Burc Rehberix",
+      title: 'Burç Rehberi',
       debugShowCheckedModeBanner: false,
-      initialRoute: "/burcListesi",
-      routes: {
-        "/": (context) => BurcListesi(),
-        "/burcListesi": (context) => BurcListesi(),
-      },
-      onGenerateRoute: (RouteSettings settings) {
-        List<String> pathElemanlari =
-            settings.name.split("/"); //  /  burcDetay  /    1
-        if (pathElemanlari[1] == 'burcDetay') {
-          return MaterialPageRoute(
-              builder: (context) => BurcDetay(int.parse(pathElemanlari[2])));
-        }
-        return null;
-      },
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: SignInPage(),
     );
   }
 }

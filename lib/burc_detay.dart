@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_burc_rehberi/burc_liste.dart';
-import 'package:flutter_burc_rehberi/models/burc.dart';
+
+import './burc_liste.dart';
+import './models/burc.dart';
 
 class BurcDetay extends StatelessWidget {
   int gelenIndex;
@@ -19,7 +20,7 @@ class BurcDetay extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 250,
             pinned: true,
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.pink,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
                 "images/" + secilenBurc.burcBuyukResim,
@@ -34,7 +35,7 @@ class BurcDetay extends StatelessWidget {
               margin: EdgeInsets.all(8),
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.green.shade50,
+                color: Colors.pink.shade50,
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: SingleChildScrollView(

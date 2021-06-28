@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_burc_rehberi/models/burc.dart';
-import 'package:flutter_burc_rehberi/utils/strings.dart';
+
+import './utils/strings.dart';
+import 'models/burc.dart';
 
 class BurcListesi extends StatelessWidget {
   static List<Burc> tumBurclar;
@@ -10,9 +11,6 @@ class BurcListesi extends StatelessWidget {
     tumBurclar = veriKaynaginiHazirla();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Burç Rehberi"),
-      ),
       body: listeyiHazirla(),
     );
   }
@@ -67,7 +65,7 @@ class BurcListesi extends StatelessWidget {
             style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w400,
-                color: Colors.green.shade500),
+                color: Colors.pink.shade500),
           ),
           subtitle: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
@@ -79,7 +77,7 @@ class BurcListesi extends StatelessWidget {
                   color: Colors.black38),
             ),
           ),
-          trailing: Icon(Icons.arrow_forward_ios, color: Colors.green),
+          trailing: Icon(Icons.arrow_forward_ios, color: Colors.pink),
         ),
       ),
     );
